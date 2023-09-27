@@ -3,12 +3,13 @@ import SocialButton from '../components/SocialButton';
 
 function Main() {
   const socials: [string, boolean, string, string][] = [
-    ['twitter', true, 'Twitter', 'https://twitter.com/Noodle_Sushi'],
-    ['instagram', true, 'Instagram', 'https://www.instagram.com/noodle.sushii'],
-    ['youtube', true, 'YouTube', 'https://www.youtube.com/@Noodle_Sushi'],
-    ['soundcloud', true, 'SoundCloud', 'https://soundcloud.com/noodle_sushi'],
     ['github', true, 'GitHub', 'https://github.com/NoodleSushi'],
+    ['twitter', true, 'Twitter', 'https://twitter.com/Noodle_Sushi'],
+    ['youtube', true, 'YouTube', 'https://www.youtube.com/@Noodle_Sushi'],
+    ['instagram', true, 'Instagram', 'https://www.instagram.com/noodle.sushii'],
+    ['soundcloud', true, 'SoundCloud', 'https://soundcloud.com/noodle_sushi'],
     ['itchdotio', true, 'Itch.io', 'https://noodlesushi.itch.io'],
+    ['/socials/newgrounds.svg', false, 'Newgrounds', 'https://noodlesushi.newgrounds.com'],
     ['/socials/bsky.png', false, 'Bluesky', 'https://bsky.app/profile/noodlesushi.bsky.social'],
   ];
 
