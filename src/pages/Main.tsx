@@ -15,7 +15,7 @@ function Main() {
 
   return (
     <>
-      <img src='/hehe lol.png' alt='noodlesushi' title='me lol' />
+      <img src='/hehe lol.gif' alt='noodlesushi' title='me lol' />
       <h1>Hello! I'm NoodleSushi!</h1>
       <h2>Will be working on my website soon.</h2>
       <h2>uwu</h2>
