@@ -2,15 +2,15 @@ import styles from './Main.module.css';
 import SocialButton from '../components/SocialButton';
 
 function Main() {
-  const socials: [string, boolean, string, string][] = [
-    ['github', true, 'GitHub', 'https://github.com/NoodleSushi'],
-    ['twitter', true, 'Twitter', 'https://twitter.com/Noodle_Sushi'],
-    ['youtube', true, 'YouTube', 'https://www.youtube.com/@Noodle_Sushi'],
-    ['instagram', true, 'Instagram', 'https://www.instagram.com/noodle.sushii'],
-    ['soundcloud', true, 'SoundCloud', 'https://soundcloud.com/noodle_sushi'],
-    ['itchdotio', true, 'Itch.io', 'https://noodlesushi.itch.io'],
-    ['/socials/newgrounds.svg', false, 'Newgrounds', 'https://noodlesushi.newgrounds.com'],
-    ['/socials/bsky.png', false, 'Bluesky', 'https://bsky.app/profile/noodlesushi.bsky.social'],
+  const socials: [string, string, string][] = [
+    ['/socials/github.svg', 'GitHub', 'https://github.com/NoodleSushi'],
+    ['/socials/twitter.svg', 'Twitter', 'https://twitter.com/Noodle_Sushi'],
+    ['/socials/youtube.svg', 'YouTube', 'https://www.youtube.com/@Noodle_Sushi'],
+    ['/socials/instagram.svg', 'Instagram', 'https://www.instagram.com/noodle.sushii'],
+    ['/socials/soundcloud.svg', 'SoundCloud', 'https://soundcloud.com/noodle_sushi'],
+    ['/socials/itchdotio.svg', 'Itch.io', 'https://noodlesushi.itch.io'],
+    ['/socials/newgrounds.svg', 'Newgrounds', 'https://noodlesushi.newgrounds.com'],
+    ['/socials/bsky.png', 'Bluesky', 'https://bsky.app/profile/noodlesushi.bsky.social'],
   ];
 
   return (
@@ -22,8 +22,8 @@ function Main() {
       <div style={{display: 'inline-block'}}>
         <div className={styles.socials}>
           {socials.map(x =>
-            <a href={ x[3] } target='_blank' title={ x[2] }>
-              <SocialButton src={ x[0] } simpleicon={ x[1] } alt={ x[2] } />
+            <a href={ x[2] } target='_blank' title={ x[1] }>
+              <SocialButton src={ x[0] } alt={ x[1] } />
             </a>
           )}
         </div>
