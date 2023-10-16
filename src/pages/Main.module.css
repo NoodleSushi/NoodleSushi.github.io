@@ -1,4 +1,35 @@
-.socials {
-  display: flex;
-  gap: 8px;
+.introContainer {
+  overflow: hidden;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.introContent {
+  height: min(100vw, 600px);
+  padding: 0 2%;
+  margin: 0px auto;
+  position: relative;
+  max-width: var(--max-content-width);
+}
+
+.introContentText {
+  padding-left: 24px;
+}
+
+.noodleImage {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(20%);
+  z-index: -1;
+}
+
+.noodleImageShadow {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(23%);
+  z-index: -2;
+  filter: brightness(0) saturate(100%) invert(21%) sepia(79%) saturate(3511%) hue-rotate(247deg) brightness(99%) contrast(105%);
 }
