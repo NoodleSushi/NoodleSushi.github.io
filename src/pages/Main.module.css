@@ -12,6 +12,7 @@
 }
 
 .introContentText {
+  position: absolute;
   padding-left: 24px;
 }
 
@@ -21,7 +22,6 @@
   bottom: 0;
   right: 0;
   transform: translateX(20%);
-  z-index: -1;
 }
 
 .noodleImageShadow {
@@ -30,6 +30,5 @@
   bottom: 0;
   right: 0;
   transform: translateX(23%);
-  z-index: -2;
   filter: brightness(0) saturate(100%) invert(21%) sepia(79%) saturate(3511%) hue-rotate(247deg) brightness(99%) contrast(105%);
 }
