@@ -9,7 +9,15 @@
   max-width: var(--max-content-width);
   padding: 0 2%;
   margin: auto;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   color: var(--footer-text-color);
+}
+
+@media screen and (max-width: 768px) {
+  .footerContainer {
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }
