@@ -20,7 +20,7 @@ function Footer() {
         <div style={{display: 'inline-block'}}>
           <div className={styles.socials}>
             {socials.map(x =>
-              <a href={ x[2] } target='_blank' title={ x[1] }>
+              <a key={ x[1] } href={ x[2] } target='_blank' title={ x[1] }>
                 <SocialButton src={ x[0] } alt={ x[1] } size={32} />
               </a>
             )}
