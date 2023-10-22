@@ -5,8 +5,10 @@ function Main() {
     <>
       <div className={styles.introContainer}>
         <div className={styles.introContent}>
-          <img className={styles.noodleImageShadow} src='/noodle-home.png' alt='noodlesushi'/>
-          <img className={styles.noodleImage} src='/noodle-home.png' alt='noodlesushi' />
+          <div className={styles.introNoodleImage}>
+            <img className={styles.noodleImageShadow} src='/noodle-home-shadow.png' alt='noodlesushi'/>
+            <img className={styles.noodleImage} src='/noodle-home.png' alt='noodlesushi' />
+          </div>
           <div className={styles.introContentText}>
             <h1>Heya! I'm NoodleSushi!</h1>
             <h2>Will be working on my website soon.</h2>
