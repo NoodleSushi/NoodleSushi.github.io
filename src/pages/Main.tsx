@@ -19,7 +19,7 @@ function Main() {
       <img src='/hehe lol.gif' alt='noodlesushi' title='me lol' />
       <h1>Hello! I'm NoodleSushi!</h1>
       <h2>Will be working on my website soon.</h2>
-      <h2>uwu</h2>
+      <h2>=w=</h2>
       <div style={{display: 'inline-block'}}>
         <div className={styles.socials}>
           {socials.map(x =>
