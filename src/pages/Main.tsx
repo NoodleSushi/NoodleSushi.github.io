@@ -1,5 +1,6 @@
 import styles from './Main.module.css';
 import SocialButton from '../components/SocialButton';
+import React from 'react';
 
 function Main() {
   const email: string = 'noodlesushinfo@gmail.com';
@@ -14,9 +15,68 @@ function Main() {
     // ['/socials/bsky.png', 'Bluesky', 'https://bsky.app/profile/noodlesushi.bsky.social'],
   ];
 
+  const COOLDOWN_TIME = 100;
+  const PETTING_TIME = 1000;
+  const NOODLE_IDLE = 0;
+  const NOODLE_ANTICIPATE = 1;
+  const NOODLE_PET = 2;
+  const NOODLE_IMGS = ['/noodle-default.gif', '/noodle-anticipate.gif', '/noodle-pet.gif'];
+  const [noodleState, setNoodleState] = React.useState(NOODLE_IDLE);
+  const timeoutID = React.useRef<number | null>(null);
+  const squeeAudio = React.useRef<HTMLAudioElement>(null);
+
+  const updateNoodleState = (newState: number) => {
+    if (noodleState === NOODLE_IDLE && newState === NOODLE_ANTICIPATE)
+      setNoodleState(NOODLE_ANTICIPATE);
+    else if (noodleState === NOODLE_ANTICIPATE) {
+      if (newState === NOODLE_IDLE) {
+        if (timeoutID.current !== null)
+          clearTimeout(timeoutID.current);
+        timeoutID.current = setTimeout(() => setNoodleState(NOODLE_IDLE), COOLDOWN_TIME);
+      } else if (newState === NOODLE_PET) {
+        squeeAudio.current?.play();
+        setNoodleState(NOODLE_PET);
+        if (timeoutID.current !== null)
+          clearTimeout(timeoutID.current);
+        timeoutID.current = setTimeout(() => setNoodleState(NOODLE_IDLE), PETTING_TIME);
+      }
+    }
+  };
+
+  const isInArea = (e: React.MouseEvent<HTMLElement>) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - left) / width;
+    const y = (e.clientY - top) / height;
+    return x >= 19 / 152 && x <= 72 / 152 && y >= 30 / 103 && y <= 52 / 103;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const check = isInArea(e);
+    if (check)
+      updateNoodleState(NOODLE_ANTICIPATE);
+    else if (!check)
+      updateNoodleState(NOODLE_IDLE);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
+    if (isInArea(e))
+      updateNoodleState(NOODLE_PET);
+  };
+
+  const handleMouseLeave = () => {
+    updateNoodleState(0);
+  };
+
   return (
     <>
-      <img src='/hehe lol.gif' alt='noodlesushi' title='me lol' />
+      <audio ref={squeeAudio} src='/squee.ogg' />
+      <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onMouseDown={handleMouseDown}>
+        {
+          Array.from(NOODLE_IMGS.entries()).map(([i, src]) =>
+            <img key={i} className={styles.noodle} style={{ display: noodleState === i ? 'block' : 'none' }} src={src} alt='noodlesushi'/>
+          )
+        }
+      </div>
       <h1>Hello! I'm NoodleSushi!</h1>
       <h2>Will be working on my website soon.</h2>
       <h2>=w=</h2>
