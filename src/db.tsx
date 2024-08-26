@@ -16,7 +16,8 @@ const worker = await createDbWorker(
   wasmUrl.toString()
 );
 
-type Game = {
+
+export type Game = {
   game_id: number;
   title: string;
   cart_img: string;
@@ -24,10 +25,7 @@ type Game = {
   pub_date: string;
 };
 
-const queryGames = async () => {
+export const queryGames = async () => {
   const result = await worker.db.query(`select * from games`) as Game[];
   return result;
 };
-
-export { queryGames };
-export type { Game };
