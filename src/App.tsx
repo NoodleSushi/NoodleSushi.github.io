@@ -1,8 +1,9 @@
 import './App.css';
 import Main from './pages/Main';
+import Test from './pages/Test';
 
 function App() {
-  return <Main />;
+  return <Test />;
 }
 
 export default App;

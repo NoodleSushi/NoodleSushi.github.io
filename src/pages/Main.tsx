@@ -68,7 +68,7 @@ function Main() {
   };
 
   return (
-    <>
+    <div className={styles.main}>
       <audio ref={squeeAudio} src='/squee.ogg' />
       <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onMouseDown={handleMouseDown}>
         {
@@ -95,7 +95,7 @@ function Main() {
         </svg>
         <a className={styles.link} href={`mailto:${email}`}>{email}</a>
       </div>
-    </>
+    </div>
   );
 }
 
